@@ -1,0 +1,27 @@
+<header>
+    <img class="logo-total" src="assets/TOTAL_SA_logo.png" alt="TOTAL Logo" title="logo de total">
+  </header>
+  
+  <main>
+  
+    <h1>Extranet pour gérant de station service Total Marketing Gabon</h1>
+  
+    <h2>Connetez vous pour ouvrir une session</h2>
+  
+    <form>
+  
+      <div class="form-group">
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" placeholder="exemple: nveorphee">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input type="password" id="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="123456">
+      </div>
+  
+      <button id="submit" (click)="login()">Se connecter</button>
+  
+    </form>
+  
+</main>

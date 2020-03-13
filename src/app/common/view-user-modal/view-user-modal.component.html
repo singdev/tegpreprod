@@ -1,0 +1,31 @@
+<div class="cn-modal">
+    <div class="modal">
+        <div class="main">
+
+            <h1 class="initials">{{user.fullname.charAt(0)}}</h1>
+
+            <select id="role" [(ngModel)]='user.role' (focusout)='updateUser()'>
+                <option value="TMG">TMG</option>
+                <option value="GERANT">GERANT</option>
+                <option value="ESS">EMPLOYER_SS</option>
+            </select>
+
+            <div class="grid-cn">
+                <input type="text" id="fullname" (focusout)='updateUser()' [(ngModel)]='user.fullname' placeholder="Nom et prénom">
+
+                <input type="text" id="username" (focusout)='updateUser()' [(ngModel)]='user.username' placeholder="nom d'utilisateur">
+    
+                <input type="text" id="email" (focusout)='updateUser()' [(ngModel)]='user.email' placeholder="email">
+    
+                <input type="text" id="phone" (focusout)='updateUser()' [(ngModel)]='user.phone' placeholder="numéro de téléphone">
+            </div>
+
+
+            <a href="#">reinitialiser le mot de passe</a>
+        </div>
+
+        <div class="actions">
+            <button (click)='cancel()'>Fermer</button>
+        </div>
+    </div>
+</div>

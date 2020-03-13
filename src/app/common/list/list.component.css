@@ -1,0 +1,54 @@
+ table {
+     width: 100%;
+ }
+
+ .thead, .tentry {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     justify-content: space-evenly;
+     align-items: center;
+     padding: 16px;
+     transition: 0.4s;
+ }
+
+ .pagination {
+     display: flex;
+     flex-direction: row;
+ }
+
+ .pagination li {
+     list-style-type: none;
+ }
+
+.thead {
+     background-color: #444444;
+     color: white;
+}
+
+ table:nth-child(2*(n+1)){
+     background-color: aqua;
+ }
+
+ table:nth-child(2*(n+1)+1){
+     background-color: rebeccapurple;
+ }
+
+.tentry:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 1px solid #777777;
+}
+
+ .pagination li {
+     padding: 8px;
+ }
+
+ .pagination li:hover {
+     cursor: pointer;
+     background-color: #cccccc;
+ }
+
+ .pagination .active {
+     background-color: red;
+ }

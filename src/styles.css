@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+ * {
+     padding: 0px;
+     margin: 0px;
+     box-sizing: border-box;
+ }
+
+ .total-logo {
+    width: 7em;
+    height: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    flex-wrap: nowrap;
+    width: 25vw;
+    padding: 8px;
+    justify-content: center;
+}
+
+.form-group input, .form-group select {
+    padding: 8px;
+    border: 1px solid #cccccc;
+}
+
+.cn-modal {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal {
+    background-color: white;
+    width: 60%;
+}
+
+.modal-title {
+    padding: 20px;
+}
+
+.modal .actions {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #cccccc;
+}
+
+.modal .actions button {
+    padding: 8px;
+}

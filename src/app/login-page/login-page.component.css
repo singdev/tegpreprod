@@ -1,0 +1,37 @@
+
+header {
+    box-shadow: 0.1em 0.3em 10px #cccccc;
+    padding: 16px;
+}
+
+.logo-total {
+    width: 10em;
+    height: auto;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 60vh;
+    width: 100vw;
+}
+
+h1, h2 {
+    padding: 20px;
+    text-align: center;
+}
+
+form {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    padding: 8px;
+    margin: 8px;
+}

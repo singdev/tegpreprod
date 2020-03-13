@@ -1,0 +1,16 @@
+
+<table>
+    <tr class="thead">
+        <th *ngFor="let header of headers">{{header}}</th>
+    </tr>
+
+    <div class="cn-entry"  *ngFor="let row of rows">
+        <tr (click)="emitRowClickEvent(indexOfRow(row))" class="tentry" *ngIf='isOnCurrentPage(row)'>
+            <td *ngFor="let col of row">{{col}}</td>
+        </tr>
+    </div>
+</table>
+
+<ul class="pagination" >
+    <li [class.active]='index == currentPage' *ngFor='let index of range(0, pageCount())' (click)="changePage(index)">{{index}}</li>
+</ul>

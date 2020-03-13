@@ -1,0 +1,33 @@
+input, select, option {
+    border: none;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
+}
+
+.grid-cn {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+a {
+    text-align: center;
+}
+
+.initials {
+    border-radius: 100px;
+    background-color: #444444;
+    color: white;
+    width: 75px;
+    height: 75px;
+    text-align: center;
+    line-height: 75px;
+}

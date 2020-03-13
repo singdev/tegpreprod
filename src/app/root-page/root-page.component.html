@@ -1,0 +1,59 @@
+<header>
+    <img class="total-logo" src="assets/TOTAL_SA_logo.png" alt="LOGO total">
+    <div class="flex-expand">
+        <p>Bienvenue Root</p>
+        <p>Administrateur de l'extranet des gérants TMG</p>
+    </div>
+    <i class="fa fa-user"></i>
+</header>
+
+<main>
+
+    <nav>
+        <div class="nav-item" [class.active]="currentMenu == 'fg-users'"(click)="toggleMenu('fg-users')">
+            <i class="fa fa-users"></i>
+            <span>Utilisateurs</span>
+        </div>
+
+        <div class="nav-item" [class.active]="currentMenu == 'fg-ss'"(click)="toggleMenu('fg-ss')">
+            <i class="fa fa-gas-pump"></i>
+            <span>Station services</span>
+        </div>
+
+        <div class="nav-item" [class.active]="currentMenu == 'fg-objs'"(click)="toggleMenu('fg-objs')">
+            <i class="fa fa-bullseye"></i>
+            <span>Objectifs</span>
+        </div>
+
+        <div class="nav-item" [class.active]="currentMenu == 'fg-forum'" (click)="toggleMenu('fg-forum')">
+            <i class="fa fa-comments"></i>
+            <span>Forum</span>
+        </div>
+    </nav>
+
+    <div class="main-ctn">
+
+        <div id="fg-users" *ngIf="currentMenu == 'fg-users'">
+            <button (click)="displayCreateUserDialog()">Ajouter un utilisateur</button>
+            <div *ngIf="userTableRows">
+                <app-list (rowClick)='onUserTableRowClick($event)' [rows]='userTableRows' [headers]='userTableHeaders'></app-list>
+            </div>
+        </div>
+
+        <div id="fg-ss" *ngIf="currentMenu == 'fg-ss'">
+            Station service
+        </div>
+
+        <div id="fg-objs" *ngIf="currentMenu == 'fg-objs'">
+            Objctifs
+        </div>
+
+        <div id="fg-forum" *ngIf="currentMenu == 'fg-forum'">
+            Forum
+        </div>
+    </div>
+
+</main>
+
+<app-create-user-modal (closeModal)='onUserCreated($event)' *ngIf="showCreateUserModal"></app-create-user-modal>
+<app-view-user-modal (closeModal)='onUserCancelView()' *ngIf="showViewUserModal" [(user)]='currentUserView'></app-view-user-modal>
