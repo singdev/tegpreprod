@@ -1,0 +1,51 @@
+<div class="cn">
+
+    <div class="obj-top-service" *ngIf='objectifTopService'>
+        <h1>Objectifs top service</h1>
+        <p>Mettre à jour les informations sur l’indicateur filial et l’indicateur top service que doivent atteindre toute les stations services </p>
+        
+        <div class="indicateurs">
+            <div class="indicateur">
+                <label for="indicateur_filial">Indicateur filial</label>
+                <input type="text" (focusout)='updateObjectifTopService()' [(ngModel)]='objectifTopService.indicateur_filial' id="indicateur_filial">
+            </div>
+        </div>
+    </div>
+
+    <div class="obj-volume" *ngIf='objectifVolume'>
+        <h1>Objectif volume</h1>
+        <p>Mettre à jour les objectifs volume de <span class="year">{{ currentYear }}</span></p>
+    
+        <div class="cn-volume">
+            <div class="volume">
+                <label for="lubrifiant">Lubrifiant</label>
+                <input type="text" (focusout)='updateObjectifVolume()' [(ngModel)]='objectifVolume.lubrifiant' id="lubrifiant">
+            </div>
+
+            <div class="volume">
+                <label for="carburant">Carburant</label>
+                <input type="text" (focusout)='updateObjectifVolume()' [(ngModel)]='objectifVolume.carburant' id="carburant">
+            </div>
+
+            <div class="volume">
+                <label for="sfs">SFS</label>
+                <input type="text" (focusout)='updateObjectifVolume()' [(ngModel)]='objectifVolume.sfs' id="sfs">
+            </div>
+
+            <div class="volume">
+                <label for="gpl">GPL</label>
+                <input type="text" (focusout)='updateObjectifVolume()' [(ngModel)]='objectifVolume.gpl' id="gpl">
+            </div>
+
+            <div class="volume">
+                <label for="croissanterie">Croissanterie</label>
+                <input type="text" (focusout)='updateObjectifVolume()' [(ngModel)]='objectifVolume.croissanterie' id="croissanterie">
+            </div>
+
+            <div class="volume">
+                <label for="wash">Wash</label>
+                <input type="text" (focusout)='updateObjectifVolume()' [(ngModel)]='objectifVolume.wash' id="wash">
+            </div>
+        </div>
+    </div>
+</div>

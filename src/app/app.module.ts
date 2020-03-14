@@ -18,6 +18,7 @@ import { CreateStationServiceModalComponent } from './common/create-station-serv
 import { ViewStationServiceModalComponent } from './common/view-station-service-modal/view-station-service-modal.component';
 import { RealisationCardComponent } from './common/realisation-card/realisation-card.component';
 import { UpdateRealisationVolumeComponent } from './common/update-realisation-volume/update-realisation-volume.component';
+import { ObjectifManagementComponent } from './objectif-management/objectif-management.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UpdateRealisationVolumeComponent } from './common/update-realisation-vo
     CreateStationServiceModalComponent,
     ViewStationServiceModalComponent,
     RealisationCardComponent,
-    UpdateRealisationVolumeComponent
+    UpdateRealisationVolumeComponent,
+    ObjectifManagementComponent
   ],
   imports: [
     BrowserModule,
