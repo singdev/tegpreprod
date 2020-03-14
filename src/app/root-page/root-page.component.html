@@ -34,14 +34,11 @@
     <div class="main-ctn">
 
         <div id="fg-users" *ngIf="currentMenu == 'fg-users'">
-            <button (click)="displayCreateUserDialog()">Ajouter un utilisateur</button>
-            <div *ngIf="userTableRows">
-                <app-list (rowClick)='onUserTableRowClick($event)' [rows]='userTableRows' [headers]='userTableHeaders'></app-list>
-            </div>
+            <app-user-management></app-user-management>
         </div>
 
         <div id="fg-ss" *ngIf="currentMenu == 'fg-ss'">
-            Station service
+           <app-station-service-management></app-station-service-management>
         </div>
 
         <div id="fg-objs" *ngIf="currentMenu == 'fg-objs'">
@@ -54,6 +51,3 @@
     </div>
 
 </main>
-
-<app-create-user-modal (closeModal)='onUserCreated($event)' *ngIf="showCreateUserModal"></app-create-user-modal>
-<app-view-user-modal (closeModal)='onUserCancelView()' *ngIf="showViewUserModal" [(user)]='currentUserView'></app-view-user-modal>

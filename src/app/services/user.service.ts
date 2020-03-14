@@ -20,6 +20,14 @@ export class UserService {
     return this.http.get<Array<User>>(`${URL}/users`, { headers: headers });
   }
 
+  getAllGerants(): Observable<Array<User>>{
+    let headers: HttpHeaders = new HttpHeaders(
+      {'authorization': `Bearer ${this.authService.getToken()}`,
+       'content-type': 'application/json'});
+
+    return this.http.get<Array<User>>(`${URL}/users/search/by-role/GERANT`, { headers: headers });
+  }
+
   getUser(id: number): Observable<User>{
     let headers: HttpHeaders = new HttpHeaders(
       {'authorization': `Bearer ${this.authService.getToken()}`,

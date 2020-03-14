@@ -1,0 +1,13 @@
+<button (click)="displayCreateStationServiceDialog()">Ajouter une station service</button>
+<div *ngIf="stationServiceTableRows">
+    <app-list (rowClick)='onStationServiceTableRowClick($event)' [rows]='stationServiceTableRows' [headers]='stationServiceTableHeaders'></app-list>
+</div>
+
+<app-create-station-service-modal (closeModal)='onStationServiceCreated($event)' *ngIf="showCreateStationServiceModal">
+
+</app-create-station-service-modal>
+
+<app-view-station-service-modal (closeModal)='onStationServiceCancelView()' *ngIf="showViewStationServiceModal" [(stationService)]='currentStationServiceView'></app-view-station-service-modal>
+
+
+

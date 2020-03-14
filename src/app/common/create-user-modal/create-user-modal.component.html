@@ -1,15 +1,15 @@
 <div class="cn-modal">
     <div class="modal">
-        <h1 class="modal-title">Ajouter un utilisation</h1>
+        <h1 class="modal-title">Ajouter un utilisateur</h1>
         <div class="main">
             <div class="form-group">
-                <label for="fullname">Nom complet</label>
-                <input type="text" id="fullname" [(ngModel)]='user.fullname' placeholder="Nom et prénom">
+                <label for="fullname">Nom</label>
+                <input type="text" id="fullname" [(ngModel)]='user.fullname' placeholder="Nom de la station service">
             </div>
 
             <div class="form-group">
                 <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" [(ngModel)]='user.username' placeholder="nom d'utilisateur">
+                <input type="text" id="username" [(ngModel)]='user.username' placeholder="Nom d'utilisateur">
             </div>
 
             <div class="form-group">
@@ -24,10 +24,10 @@
 
             <div class="form-group">
                 <label for="role">Rôle</label>
-                <select id="role" [(ngModel)]='user.role'>
-                    <option value="TMG">TMG</option>
+                <select  id="role" [(ngModel)]='user.role'>
                     <option value="GERANT">GERANT</option>
-                    <option value="ESS">EMPLOYER_SS</option>
+                     <option value="TMG">TMG</option>
+                    <option value="EMPLOYE_SS">EMPLOYE_SS</option>
                 </select>
             </div>
 

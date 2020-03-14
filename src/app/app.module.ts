@@ -12,6 +12,10 @@ import { GerantPageComponent } from './gerant-page/gerant-page.component';
 import { ListComponent } from './common/list/list.component';
 import { CreateUserModalComponent } from './common/create-user-modal/create-user-modal.component';
 import { ViewUserModalComponent } from './common/view-user-modal/view-user-modal.component';
+import { UserManagementComponent } from './user-management/user-management.component';
+import { StationServiceManagementComponent } from './station-service-management/station-service-management.component';
+import { CreateStationServiceModalComponent } from './common/create-station-service-modal/create-station-service-modal.component';
+import { ViewStationServiceModalComponent } from './common/view-station-service-modal/view-station-service-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,11 @@ import { ViewUserModalComponent } from './common/view-user-modal/view-user-modal
     GerantPageComponent,
     ListComponent,
     CreateUserModalComponent,
-    ViewUserModalComponent
+    ViewUserModalComponent,
+    UserManagementComponent,
+    StationServiceManagementComponent,
+    CreateStationServiceModalComponent,
+    ViewStationServiceModalComponent
   ],
   imports: [
     BrowserModule,
