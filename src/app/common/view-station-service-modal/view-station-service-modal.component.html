@@ -1,1 +1,72 @@
-<p>view-station-service-modal works!</p>
+<div class="cn-modal">
+    <div class="modal">
+        <div class="main">
+            <section class="informations">
+                <div class="form-group">
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" [(ngModel)]='stationService.name' (focusout)='updateStationService()' placeholder="Nom de la station service">
+                </div>
+    
+                <div class="form-group">
+                    <label for="sap">SAP</label>
+                    <input type="text" id="sap" [(ngModel)]='stationService.sap' (focusout)='updateStationService()' placeholder="SAP">
+                </div>
+    
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" [(ngModel)]='stationService.email' (focusout)='updateStationService()' placeholder="email">
+                </div>
+    
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="text" id="phone" [(ngModel)]='stationService.phone' (focusout)='updateStationService()' placeholder="numéro de téléphone">
+                </div>
+    
+                <div class="form-group">
+                    <label for="ville">Ville</label>
+                    <input type="text" id="ville" [(ngModel)]='stationService.ville' (focusout)='updateStationService()' placeholder="Ville">
+                </div>
+    
+                <div class="form-group">
+                    <label for="gerant">Gérant de la station</label>
+                    <select id="gerant" *ngIf='users' (focusout)='updateStationService()' [(ngModel)]='stationService.gerant'>
+                        <option *ngFor='let user of users' [value]="user.id">{{user.fullname}}</option>
+                    </select>
+                </div>
+    
+                <div class="form-group">
+                    <label for="lat">Latitude</label>
+                    <input type="text" id="lat" (focusout)='updateStationService()' [(ngModel)]='lat' placeholder="Latitude">
+                </div>
+    
+                <div class="form-group">
+                    <label for="lng">Longitude</label>
+                    <input type="text" id="lng" (focusout)='updateStationService()' [(ngModel)]='lng' placeholder="Longitude">
+                </div>
+    
+            </section>
+
+            <section class="realisation-volume">
+                <h1>Mettre à jour les réalisations en volume</h1>
+                <app-update-realisation-volume [stationService]='stationService'></app-update-realisation-volume>
+            </section>
+
+            <section *ngIf='realisationTopService'>
+                <h1>Mettre à jour les réalisations top service</h1>
+                <div class="form-group">
+                    <label for="n_s1">resultat du premier semestre</label>
+                    <input type="text" id="n_s1" (focusout)='updateTopService()' [(ngModel)]='realisationTopService.n_s1'>
+                </div>
+
+                <div class="form-group">
+                    <label for="n_s2">resultat du second semestre</label>
+                    <input type="text" id="n_s2" (focusout)='updateTopService()' [(ngModel)]='realisationTopService.n_s2'>
+                </div>
+            </section>
+        </div>
+
+        <div class="actions">
+            <button (click)='cancel()'>Fermer</button>
+        </div>
+    </div>
+</div>

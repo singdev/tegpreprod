@@ -1,0 +1,17 @@
+.informations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.modal {
+    width: 80%;
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.form-group input, .form-group select {
+    border: none;
+    background-color: transparent;
+    color: #777777;
+}

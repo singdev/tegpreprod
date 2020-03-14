@@ -1,0 +1,36 @@
+<div class="card">
+    <h1>{{ month }}</h1>
+
+    <div class="result-cn">
+        <div class="group">
+            <label>Lubrifiant</label>
+            <input type="text" (focusout)='updateRealisationVolume()' *ngIf='canUpdate == true' [(ngModel)]='realisationVolume.lubrifiant'>
+            <p *ngIf='canUpdate == false'>{{realisationVolume.lubrifiant}}</p>
+        </div>
+        <div class="group">
+            <label>Carburant</label>
+            <input type="text" (focusout)='updateRealisationVolume()'  *ngIf='canUpdate == true' [(ngModel)]='realisationVolume.carburant'>
+            <p *ngIf='canUpdate == false'>{{realisationVolume.carburant}}</p>
+        </div>
+        <div class="group">
+            <label>SFS</label>
+            <input type="text" (focusout)='updateRealisationVolume()'  *ngIf='canUpdate == true' [(ngModel)]='realisationVolume.sfs'>
+            <p *ngIf='canUpdate == false'>{{realisationVolume.gpl}}</p>
+        </div>
+        <div class="group">
+            <label>GPL</label>
+            <input type="text" (focusout)='updateRealisationVolume()' *ngIf='canUpdate == true' [(ngModel)]='realisationVolume.gpl'>
+            <p *ngIf='canUpdate == false'>{{realisationVolume.gpl}}</p>
+        </div>
+        <div class="group">
+            <label>Croissanterie</label>
+            <input type="text" (focusout)='updateRealisationVolume()'  *ngIf='canUpdate == true' [(ngModel)]='realisationVolume.croissanterie'>
+            <p *ngIf='canUpdate == false'>{{realisationVolume.croissanterie}}</p>
+        </div>
+        <div class="group">
+            <label>Wash</label>
+            <input type="text" (focusout)='updateRealisationVolume()'  *ngIf='canUpdate == true' [(ngModel)]='realisationVolume.wash'>
+            <p *ngIf='canUpdate == false'>{{realisationVolume.wash}}</p>
+        </div>
+    </div>
+</div>

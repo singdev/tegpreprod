@@ -16,6 +16,8 @@ import { UserManagementComponent } from './user-management/user-management.compo
 import { StationServiceManagementComponent } from './station-service-management/station-service-management.component';
 import { CreateStationServiceModalComponent } from './common/create-station-service-modal/create-station-service-modal.component';
 import { ViewStationServiceModalComponent } from './common/view-station-service-modal/view-station-service-modal.component';
+import { RealisationCardComponent } from './common/realisation-card/realisation-card.component';
+import { UpdateRealisationVolumeComponent } from './common/update-realisation-volume/update-realisation-volume.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { ViewStationServiceModalComponent } from './common/view-station-service-
     UserManagementComponent,
     StationServiceManagementComponent,
     CreateStationServiceModalComponent,
-    ViewStationServiceModalComponent
+    ViewStationServiceModalComponent,
+    RealisationCardComponent,
+    UpdateRealisationVolumeComponent
   ],
   imports: [
     BrowserModule,

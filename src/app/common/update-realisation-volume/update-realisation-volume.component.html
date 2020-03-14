@@ -1,0 +1,5 @@
+<div class="cn" *ngIf='realisationVolumes'>
+    <div *ngFor='let rv of realisationVolumes'>
+        <app-realisation-card [canUpdate]='true' [realisationVolume]='rv'></app-realisation-card>
+    </div>
+</div>
