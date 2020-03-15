@@ -12,14 +12,18 @@
     <div class="profile" *ngIf='user'>
         <div class="top-profile">
             <div class="photo">
-                <h1 class="initial">{{getUserInitials()}}</h1>
+                <img [src]='photoUrl' *ngIf='photoUrl' alt="photo de profil0">
+                <h1 class="initial" *ngIf='photoUrl == undefined'>{{getUserInitials()}}</h1>
             </div>
     
             <div class="personal-information">
                 <h1>{{user.fullname}}</h1>
                 <h2>{{user.email}}</h2>
     
-                <button>Cliquez ici pour changer votre photo de profile</button>
+                <div class="file-chooser">
+                    <label for="photo-file">Cliquez ici pour changer votre photo de profil</label>
+                    <input type="file" (change)='changeUserPhoto($event)'>
+                </div>
             </div>
         </div>
     

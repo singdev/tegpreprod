@@ -70,4 +70,31 @@ export class UserService {
       headers: headers
     });
   }
+
+  getPhotoProfile(user: User): Observable<any>{
+    let headers: HttpHeaders = new HttpHeaders(
+      {'authorization': `Bearer ${this.authService.getToken()}`});
+
+    return this.http.get(`${URL}/users/${user.id}/photo-profile`, { headers: headers });
+  }
+
+  changePhoto(file: File, user: User): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('avatar', file);
+
+    let headers: HttpHeaders = new HttpHeaders(
+      {'authorization': `Bearer ${this.authService.getToken()}`});
+
+    return this.http.put(`${URL}/users/${user.id}/photo-profile`, formData, { headers: headers})
+  }
+
+  createPhoto(file: File, user: User): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('avatar', file);
+
+    let headers: HttpHeaders = new HttpHeaders(
+      {'authorization': `Bearer ${this.authService.getToken()}`});
+
+    return this.http.post(`${URL}/users/${user.id}/photo-profile`, formData, { headers: headers})
+  }
 }

@@ -50,7 +50,6 @@
       background-color: rgba(128, 128, 128, 0.9);
       display: flex;
       justify-content: center;
-      align-items: center;
       z-index: 4;
       overflow: scroll;
   }
@@ -58,9 +57,10 @@
   .close {
       color: white;
       font-size: 20px;
-      position: absolute;
+      position: sticky;
       top: 40px;
       left: 40px;
+      padding: 20px;
   }
 
   .close:hover {
@@ -73,4 +73,11 @@
       width: 80%;
       background-color: white;
       padding: 20px;
+      margin-top: 60px;
+      height: fit-content;
+  }
+
+  .photo img {
+      width: 100px;
+      height: auto;
   }

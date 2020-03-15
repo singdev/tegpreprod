@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/logic/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
+import { URL } from 'src/app/common/remote';
 
 @Component({
   selector: 'app-dropdown-menu',
@@ -13,6 +14,7 @@ export class DropdownMenuComponent implements OnInit {
   showMenu: boolean;
   showProfile:boolean;
   user: User;
+  photoUrl: string;
 
   newPassword: string;
   confirmNewPassword: string;
@@ -33,6 +35,7 @@ export class DropdownMenuComponent implements OnInit {
     this.userService.getUser(user.id).subscribe(
       res => {
         this.user = res;
+        this.getUserPhotoProfile();
       },
       err => {
         console.log(err);
@@ -86,5 +89,44 @@ export class DropdownMenuComponent implements OnInit {
     } else {
       alert('Les deux mot de passe doivent être identique');
     }
+  }
+
+  changeUserPhoto(event){
+    let fileList: FileList = event.target.files;
+    if(fileList.length > 0){
+      const file: File = fileList.item(0);
+      this.userService.createPhoto(file, this.user).subscribe(
+        res => { },
+        err => {
+          if(err.status == 201){
+            this.getUserPhotoProfile();
+          } else {
+            this.userService.changePhoto(file, this.user).subscribe(
+              res => { },
+              err => {
+                console.log(err.status);
+                if(err.status == 201){
+                  this.getUserPhotoProfile();
+                } 
+              });
+          }
+        }
+      )
+
+    }
+  }
+
+  getUserPhotoProfile(){
+    this.photoUrl = undefined;
+    this.userService.getPhotoProfile(this.user).subscribe(
+      res => {
+        this.photoUrl = `http://${URL}/users/${this.user.id}/photo-profil`;
+      },
+      err => {
+        console.log(err);
+        console.log('photo de profil');
+        this.photoUrl = err.url;
+      }
+    );
   }
 }
