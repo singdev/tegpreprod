@@ -38,3 +38,7 @@ nav {
     color: red;
     border-bottom: 2px solid red;
 }
+
+app-dropdown-menu {
+    padding-left: 40px;
+}

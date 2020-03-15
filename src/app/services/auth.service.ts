@@ -23,13 +23,16 @@ export class AuthService {
   }
 
   public persistToken(token: string){
-    console.log("Le token à persister");
-    console.log(token);
-
     localStorage.setItem('teg-token', token);
   }
 
   public getToken(): string {
     return localStorage.getItem('teg-token');
+  }
+
+  public getAuthenticatedUser(){
+    const jwtHelper = new JwtHelperService();
+
+    return jwtHelper.decodeToken(this.getToken()).user;
   }
 }

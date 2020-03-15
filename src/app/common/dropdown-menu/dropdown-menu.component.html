@@ -1,0 +1,61 @@
+<div class="dropdown">
+    <button (click)='dropdown()' class="dropbtn"><i class="fas fa-chevron-down"></i>
+    </button>
+    <div id="myDropdown" *ngIf='showMenu' class="dropdown-content">
+      <a (click)='displayProfile()'>Profile</a>
+      <a (click)='logout'>Déconnexion</a>
+    </div>
+</div>
+
+<div class="profile-container" *ngIf='showProfile'>
+    <a (click)='hideProfile()' class="close"><i class="fa fa-times"></i></a>
+    <div class="profile" *ngIf='user'>
+        <div class="top-profile">
+            <div class="photo">
+                <h1 class="initial">{{getUserInitials()}}</h1>
+            </div>
+    
+            <div class="personal-information">
+                <h1>{{user.fullname}}</h1>
+                <h2>{{user.email}}</h2>
+    
+                <button>Cliquez ici pour changer votre photo de profile</button>
+            </div>
+        </div>
+    
+        <div class="all-informations">
+            <div class="form-group">
+                <label for="username">Nom d'utilisateur</label>
+                <input type="text" id="username" [(ngModel)]='user.username'>
+            </div>
+    
+            <div class="form-group">
+                <label for="fullname">Nom et prénom</label>
+                <input type="text" id="fullname" [(ngModel)]='user.fullname'>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Adresse Email</label>
+                <input type="text" id="email" [(ngModel)]='user.email'>
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">Numéro de téléphone</label>
+                <input type="text" id="phone" [(ngModel)]='user.phone'>
+            </div>
+    
+            <div class="form-group">
+                <label for="role"></label>
+                <select  id="role" [(ngModel)]='user.role'>
+                    <option value="GERANT">GERANT</option>
+                    <option value="TMG">TMG</option>
+                    <option value="EMPLEYE_SS">EMPLEYE_SS</option>
+                    <option value="ROOT">ROOT</option>
+                </select>
+            </div>
+        </div>
+        <button (click)='updatePersonalInformation()'>Enregistrer les modifications</button>
+    </div>
+
+    
+</div>

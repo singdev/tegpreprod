@@ -19,6 +19,7 @@ import { ViewStationServiceModalComponent } from './common/view-station-service-
 import { RealisationCardComponent } from './common/realisation-card/realisation-card.component';
 import { UpdateRealisationVolumeComponent } from './common/update-realisation-volume/update-realisation-volume.component';
 import { ObjectifManagementComponent } from './objectif-management/objectif-management.component';
+import { DropdownMenuComponent } from './common/dropdown-menu/dropdown-menu.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ObjectifManagementComponent } from './objectif-management/objectif-mana
     ViewStationServiceModalComponent,
     RealisationCardComponent,
     UpdateRealisationVolumeComponent,
-    ObjectifManagementComponent
+    ObjectifManagementComponent,
+    DropdownMenuComponent
   ],
   imports: [
     BrowserModule,
