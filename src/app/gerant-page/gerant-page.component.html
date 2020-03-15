@@ -1,1 +1,40 @@
-<p>gerant-page works!</p>
+<header>
+    <img class="total-logo" src="/assets/TOTAL_SA_logo.png" alt="Logo de total">
+    <div class="flex-expand">
+    </div>
+    <p>Bienvenue à la station </p>
+    <a *ngIf='stationService'>{{ stationService.name}}</a>
+    <div class="photo">
+
+    </div>
+    <app-dropdown-menu></app-dropdown-menu>
+</header>
+
+<main>
+    <nav>
+        <p class="nav-item" [class.active]="selectedMenu == 'accueil'" (click)="setSelectedMenu('accueil')">accueil</p>
+        <p class="nav-item" [class.active]="selectedMenu == 'wiki-station'" (click)="setSelectedMenu('wiki-station')">wiki station</p>
+        <p class="nav-item" [class.active]="selectedMenu == 'forum'" (click)="setSelectedMenu('forum')">forum</p>
+        <p class="nav-item" [class.active]="selectedMenu == 'actu'" (click)="setSelectedMenu('actu')">actualité</p>
+    </nav>
+
+    <div class="main-content">
+        <div class="accueil" *ngIf="selectedMenu == 'accueil'">
+            Acceuil
+        </div>
+
+        <div class="wiki-station" *ngIf="selectedMenu == 'wiki-station'">
+            Wiki-station
+        </div>
+
+        <div class="forum" *ngIf="selectedMenu == 'forum'">
+            Forum
+        </div>
+
+        <div class="actu" *ngIf="selectedMenu == 'actu'">
+            Actu
+        </div>
+
+
+    </div>
+</main>

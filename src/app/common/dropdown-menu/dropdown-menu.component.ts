@@ -16,6 +16,7 @@ export class DropdownMenuComponent implements OnInit {
   showProfile:boolean;
   user: User;
   photoUrl: string;
+  hasPhoto: boolean;
 
   newPassword: string;
   confirmNewPassword: string;
@@ -25,6 +26,7 @@ export class DropdownMenuComponent implements OnInit {
   ngOnInit(): void {
     this.showMenu = false;
     this.loadAuthenticatedUser();
+    this.hasPhoto = false;
   }
 
   dropdown(){
@@ -126,8 +128,10 @@ export class DropdownMenuComponent implements OnInit {
       },
       err => {
         console.log(err);
-        console.log('photo de profil');
-        this.photoUrl = err.url;
+        if(err.status !== 404){
+          console.log('photo de profil');
+          this.photoUrl = err.url;
+        }
       }
     );
   }

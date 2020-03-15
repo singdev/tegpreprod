@@ -30,6 +30,14 @@ export class StationServiceService {
     return this.http.get<StationService>(`${URL}/station-service/${id}`, { headers: headers});
   }
 
+  getWorkerStationService(userId: number): Observable<any>{
+    let headers: HttpHeaders = new HttpHeaders(
+      {'authorization': `Bearer ${this.authService.getToken()}`,
+       'content-type': 'application/json'});
+
+    return this.http.get<any>(`${URL}/station-service-worker/search/by-user/${userId}`, { headers: headers});
+  }
+
   addStationService(stationService: StationService): Observable<any> {
     let headers: HttpHeaders = new HttpHeaders(
       {'authorization': `Bearer ${this.authService.getToken()}`,
