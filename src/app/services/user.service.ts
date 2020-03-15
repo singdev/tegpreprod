@@ -9,6 +9,15 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class UserService {
+  changeUserPassword(newPassword: string, userId: number): Observable<any> {
+    let headers: HttpHeaders = new HttpHeaders(
+      {'authorization': `Bearer ${this.authService.getToken()}`,
+       'content-type': 'application/json'});
+
+    return this.http.put(`${URL}/users/${userId}`, { password: newPassword }, {
+      headers: headers
+    });
+  }
 
   constructor(private http: HttpClient, private authService: AuthService) { }
 

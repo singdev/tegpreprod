@@ -55,6 +55,20 @@
             </div>
         </div>
         <button (click)='updatePersonalInformation()'>Enregistrer les modifications</button>
+
+        <div class="change-password">
+            <h2>Changer le mot de passe</h2>
+            <div class="form-group">
+                <label for="newpassword">Nouveau mot de passe</label>
+                <input type="password" [(ngModel)]='newPassword' id="newpassword">
+            </div>
+    
+            <div class="form-group">
+                <label for="cnewpassword">Confirmer nouveau mot de passe</label>
+                <input type="password" [(ngModel)]='confirmNewPassword' id="cnewpassword">
+            </div>
+            <button (click)='changePassword()'>Modifier le mot de passe</button>
+        </div>
     </div>
 
     

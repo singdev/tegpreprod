@@ -14,6 +14,9 @@ export class DropdownMenuComponent implements OnInit {
   showProfile:boolean;
   user: User;
 
+  newPassword: string;
+  confirmNewPassword: string;
+
   constructor(private authService: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
@@ -67,5 +70,21 @@ export class DropdownMenuComponent implements OnInit {
         }
       }
     );
+  }
+
+  changePassword(){
+    if(this.newPassword === this.confirmNewPassword){
+      this.userService.changeUserPassword(this.newPassword, this.user.id).subscribe(
+        res => {},
+        err => { 
+          if(err.status == 201){
+            alert('Modification du mot de passe effectué');
+          }
+          console.log(err); 
+        }
+      );
+    } else {
+      alert('Les deux mot de passe doivent être identique');
+    }
   }
 }
