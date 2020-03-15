@@ -35,4 +35,8 @@ export class AuthService {
 
     return jwtHelper.decodeToken(this.getToken()).user;
   }
+
+  public removeToken(){
+    localStorage.removeItem('teg-token');
+  }
 }

@@ -3,6 +3,7 @@ import { User } from 'src/app/logic/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { UserService } from 'src/app/services/user.service';
 import { URL } from 'src/app/common/remote';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dropdown-menu',
@@ -19,7 +20,7 @@ export class DropdownMenuComponent implements OnInit {
   newPassword: string;
   confirmNewPassword: string;
 
-  constructor(private authService: AuthService, private userService: UserService) { }
+  constructor(private authService: AuthService, private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.showMenu = false;
@@ -58,7 +59,8 @@ export class DropdownMenuComponent implements OnInit {
   }
 
   logout(){
-
+    this.authService.removeToken();
+    this.router.navigate(['login']);
   }
 
   updatePersonalInformation(){
