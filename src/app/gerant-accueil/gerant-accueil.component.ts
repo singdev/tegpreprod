@@ -7,6 +7,10 @@ import { ObjectifTopService } from '../logic/objectif-top-service';
 import { ObjectifVolume } from '../logic/objectif-volume';
 import { RealisationVolumeService } from '../services/realisation-volume.service';
 import { RealisationTopServiceService } from '../services/realisation-top-service.service';
+import { Actu } from '../logic/actu';
+import { ActuService } from '../services/actu.service';
+import { UserService } from '../services/user.service';
+import { URL } from '../common/remote';
 
 @Component({
   selector: 'app-gerant-accueil',
@@ -24,7 +28,16 @@ export class GerantAccueilComponent implements OnInit {
   objectifTopService: ObjectifTopService;
   objectifVolume: ObjectifVolume;
 
+  lastActu: Array<Actu>;
+  articles: Array<Actu>;
+  selectedActu: Array<any>;
+
+  displayListArticles: Array<Array<any>>;
+  displayListLastActu: Array<Array<any>>;
+
   constructor(private objectifService: ObjectifsService,
+    private actuService: ActuService,
+    private userService: UserService,
     private rvService: RealisationVolumeService,
     private rtsService: RealisationTopServiceService) { }
 
@@ -35,7 +48,12 @@ export class GerantAccueilComponent implements OnInit {
     this.loadRealisationTopService();
     this.loadRealisationVolume();
     this.loadObjectifTopService();
+    this.loadAllActu();
 
+  }
+
+  selectActu(actu){
+    this.selectedActu = actu;
   }
 
   loadObjectifVolume(){
@@ -66,6 +84,49 @@ export class GerantAccueilComponent implements OnInit {
       }
     )
   }
+
+  loadAllActu(){
+    this.actuService.getAllActu().subscribe(
+      res => {
+        this.articles = res;
+        console.log(res);
+        this.lastActu = [];
+        for(let i = 0; i< 3; i++){
+          if(this.articles[this.articles.length - i -1 ]){
+            this.lastActu.push(this.articles[this.articles.length - i -1 ]);
+          }
+        }
+        this.loadDisplayable();
+      }, err => {
+        console.log(err);
+      }
+    )
+  }
+
+
+  loadDisplayable(){
+    this.userService.getAllUsers().subscribe(
+      res => {
+        console.log(res);
+        this.displayListArticles = [];
+        this.articles.forEach(a => {
+          const author = res.find(u => u.id == a.author);
+          const date = new Date(a.publish);
+          const img = `${URL}/actu/${a.id}`;
+          console.log(img);
+          this.displayListArticles.push([a.title, a.content, author.fullname, date.getDate() + '/' + date.getMonth(), date.getFullYear() + '', img, date, a.id])
+        });
+        this.displayListLastActu = [];
+        for(let i = 0; i< 3; i++){
+          if(this.displayListArticles[this.displayListArticles.length - i -1 ]){
+            this.displayListLastActu.push(this.displayListArticles[this.articles.length - i -1 ]);
+          }
+        }
+      }, err => {
+        console.log(err);
+
+    });
+}
 
   loadRealisationVolume(){
     this.rvService.getRealisationVolumeByYear(this.currentYear)

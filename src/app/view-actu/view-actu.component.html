@@ -11,15 +11,20 @@
     </div>
 
     <div class="comments">
-        <h2>Commentaires</h2>
+        <h1>Commentaires</h1>
 
         <p>Réagir à cette article</p>
-        <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="comment"></angular-editor>
-        <button (click)='commentArticle()'>Envoyer</button>
+        <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="comment" [config]="editorConfig"></angular-editor>
+        <button  class="send-btn" (click)='commentArticle()'>Envoyer</button>
+
+        <p>Toutes les réactions</p>
         <div class="comment-list">
             <div class="comment" *ngFor='let c of comments'>
-                <p>{{c.publish}}</p>
-                <div [innerHtml]='c.content'></div>
+                <div>
+                    <p  class="author-name" *ngIf='users'>{{getUser(c.author).fullname}}</p>
+                    <p class="p-date">{{c.publish | date}}</p>
+                </div>
+                <div class="message" [innerHtml]='c.content'></div>
             </div>
         </div>
     </div>

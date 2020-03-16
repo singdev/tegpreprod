@@ -3,6 +3,7 @@
      padding: 0px;
      margin: 0px;
      box-sizing: border-box;
+     font-family: 'Roboto', sans-serif;
  }
 
  .total-logo {
@@ -26,7 +27,7 @@
 }
 
 .cn-modal {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
     width: 100vw;
@@ -57,6 +58,10 @@
 
 .modal .actions button {
     padding: 8px;
+}
+
+angular-editor button {
+    color: black;
 }
 
 header {
@@ -97,10 +102,69 @@ nav {
 
 
 .active {
-    color: red;
-    border-bottom: 2px solid red;
+    color: #DF0C36;
+    border-bottom: 2px solid #DF0C36;
 }
 
 header p {
     padding: 0px 10px;
+    font-size: 14px;
+}
+
+header .fullname {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.initials {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #004196;
+    color: white;
+    font-size: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.file-chooser input {
+    display: none;
+}
+
+.file-chooser label {
+    padding: 20px;
+    border: 2px dotted #cccccc;
+    color: #777777;
+    display: block;
+}
+
+button {
+    background-color: #DF0C36;
+    padding: 10px;
+    border-radius: 4px;
+    color: white;
+    border: none;
+    transition: 0.4s;
+}
+
+button:hover {
+    background-color: #B00429;
+    cursor: pointer;
+}
+
+.photo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 200px;
+}
+
+h1 {
+    font-size: 18px;
+}
+
+h2 {
+    color: #004196;
+    font-size: 16px;
+    padding-top: 20px;
 }

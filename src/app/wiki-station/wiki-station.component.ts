@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Wiki } from '../logic/wiki';
 import { WikiService } from '../services/wiki.service';
 
@@ -8,6 +8,8 @@ import { WikiService } from '../services/wiki.service';
   styleUrls: ['./wiki-station.component.css']
 })
 export class WikiStationComponent implements OnInit {
+
+  @Input() canUpdate: boolean;
 
   wikiFormation: Array<Wiki>;
   wikiProcedure: Array<Wiki>;

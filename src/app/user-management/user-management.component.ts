@@ -12,6 +12,8 @@ export class UserManagementComponent implements OnInit {
   userTableHeaders: Array<String>;
   @Input() userTableRows: Array<Array<String>>;
   @Input() users: Array<User>;
+  @Input() ssId: number;
+  @Input() isEmploye: boolean;
   
   showCreateUserModal: boolean;
   showViewUserModal: boolean;

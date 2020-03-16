@@ -13,6 +13,7 @@ export class WikiComponent implements OnInit {
 
   @Input() wikis: Array<Wiki>;
   @Input() category: string;
+  @Input() canUpdate: boolean;
 
   headers: Array<string>;
   rows: Array<Array<string>>;
@@ -31,10 +32,15 @@ export class WikiComponent implements OnInit {
         this.rows = [];
         this.wikis.forEach(w => {
           const user = res.find(u => u.id == w.author)
-          this.rows.push([w.filename, (w.size / 1028) + 'Ko', user.fullname]);
+          this.rows.push([w.filename, Math.floor(w.size / 1028) + 'Ko', user.fullname]);
         });
       }
     );
+  }
+
+  onClick(row){
+      console.log(row);
+      window.open(`${URL}/wiki-station/${this.wikis[row].id}`, 'blank');
   }
 
   createWiki(event) {

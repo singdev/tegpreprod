@@ -30,7 +30,7 @@ export class LoginPageComponent implements OnInit {
         let path = '';
         if(userData.user.role == "ROOT"){
           path = 'root';
-        } else if(userData.user.role == "GERANT"){
+        } else if(userData.user.role == "GERANT" || userData.user.role == "EMPLOYE_SS"){
           path = 'gerant';
         } else if(userData.user.role == "TMG"){
           path = 'tmg';
@@ -42,7 +42,7 @@ export class LoginPageComponent implements OnInit {
       }
     }, err => {
       console.log(err);
-      alert("Problème de connexion internet");
+      alert("Identifiants incorrecte");
     });
   }
 

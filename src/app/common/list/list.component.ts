@@ -13,12 +13,14 @@ export class ListComponent implements OnInit {
   
   displayRowCount: number;
   currentPage: number;
+  display:  Array<Array<string>>;
 
   constructor() { }
 
   ngOnInit(): void {
     this.currentPage = 0;
     this.displayRowCount = 5;
+    this.updateDisplay();
   }
 
   range(first:number, last:number): Array<number>{
@@ -27,6 +29,15 @@ export class ListComponent implements OnInit {
       array.push(i);
     }
     return array;
+  }
+
+  updateDisplay(){
+    this.display = [];
+    this.rows.forEach(r => {
+      if(this.isOnCurrentPage(r)){
+        this.display.push(r);
+      }
+    });
   }
 
   isOnCurrentPage(row: Array<string>): boolean{
@@ -41,6 +52,7 @@ export class ListComponent implements OnInit {
 
   changePage(index: number){
     this.currentPage = index;
+    this.updateDisplay();
   }
 
   indexOfRow(row: Array<string>){

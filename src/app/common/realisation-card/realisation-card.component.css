@@ -1,0 +1,23 @@
+
+.group {
+    padding: 4px 0px;
+}
+
+.group label {
+    font-size: 12px;
+}
+
+.group input {
+    border: 1px solid #cccccc;
+    padding: 4px;
+}
+
+.month {
+    color: #DF0C36;
+    font-size: 14px;
+}
+
+.result-cn {
+    box-shadow: 1px 2px 5px #cccccc;
+    padding: 20px;
+}

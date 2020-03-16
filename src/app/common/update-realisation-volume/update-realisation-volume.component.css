@@ -4,3 +4,8 @@
     width: 100%;
     overflow: scroll;
 }
+
+.cn * {
+    margin-left: 10px;
+    margin-right: 10px;
+}

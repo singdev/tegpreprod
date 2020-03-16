@@ -54,7 +54,7 @@ export class GerantPageComponent implements OnInit {
     this.stationServiceService.getWorkerStationService(userId).subscribe(
       res => {
         if(res[0]){
-          this.stationServiceService.getStationService(res[0].id).subscribe(
+          this.stationServiceService.getStationService(res[0].ss).subscribe(
             res => {
               this.stationService = res;
               this.getStationServiceGerant();

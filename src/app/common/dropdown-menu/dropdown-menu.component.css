@@ -42,7 +42,7 @@
   .dropdown-content a:hover {background-color: #ddd}
 
   .profile-container {
-      position: absolute;
+      position: fixed;
       top: 0px;
       left: 0px;
       width: 100vw;
@@ -50,7 +50,7 @@
       background-color: rgba(128, 128, 128, 0.9);
       display: flex;
       justify-content: center;
-      z-index: 4;
+      z-index: 18;
       overflow: scroll;
   }
 
@@ -77,7 +77,27 @@
       height: fit-content;
   }
 
+  .top-profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .photo {
+    padding: 20px;
+  }
+
   .photo img {
-      width: 100px;
-      height: auto;
+    width: 200px;
+    height: auto;
+  }
+
+  .personal-information * {
+    margin: 20px;
+  }
+
+  .all-informations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }

@@ -28,6 +28,9 @@ import { WikiStationComponent } from './wiki-station/wiki-station.component';
 import { ActuManagementComponent } from './common/actu-management/actu-management.component';
 import { CreateActuModalComponent } from './common/create-actu-modal/create-actu-modal.component';
 import { ViewActuComponent } from './view-actu/view-actu.component';
+import { ForumSubjectComponent } from './forum-subject/forum-subject.component';
+import { ForumPostComponent } from './forum-post/forum-post.component';
+import { CreateSubjectModalComponent } from './common/create-subject-modal/create-subject-modal.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { ViewActuComponent } from './view-actu/view-actu.component';
     WikiStationComponent,
     ActuManagementComponent,
     CreateActuModalComponent,
-    ViewActuComponent
+    ViewActuComponent,
+    ForumSubjectComponent,
+    ForumPostComponent,
+    CreateSubjectModalComponent
   ],
   imports: [
     BrowserModule,

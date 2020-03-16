@@ -3,6 +3,7 @@ import { User } from '../logic/user';
 import { StationService } from '../logic/station-service';
 import { StationServiceService } from '../services/station-service.service';
 import { UserService } from '../services/user.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-my-station-service',
@@ -13,6 +14,7 @@ export class MyStationServiceComponent implements OnInit {
 
   @Input() stationService: StationService;
   @Input() gerant: User;
+  user: User;
 
   @Output() closeEvent = new EventEmitter<boolean>();
 
@@ -23,10 +25,12 @@ export class MyStationServiceComponent implements OnInit {
   openStreetMapLink: string;
 
   constructor(private ssService: StationServiceService,
-    private userService: UserService) { }
+    private userService: UserService,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loadAllUser();
+    this.user = this.authService.getAuthenticatedUser();
   }
 
   close(){

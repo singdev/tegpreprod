@@ -1,13 +1,14 @@
 .on-top {
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.9);
     justify-content: center;
     overflow-y: scroll;
     display: flex;
+    z-index: 20;
 }
 
 .content {
@@ -28,6 +29,7 @@
     top: 40px;
     left: 40px;
     font-size: 20px;
+    color: white;
 }
 
 .close:hover {
@@ -50,4 +52,15 @@
 
 .gerant-cn h1 {
     text-align: center;
+}
+
+
+
+.key-value * {
+    font-size: 14px;
+    padding: 8px;
+}
+
+.value {
+    color: #DF0C36;
 }

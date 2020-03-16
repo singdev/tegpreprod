@@ -3,8 +3,8 @@
     <div class="flex-expand">
     </div>
     <p>Bienvenue à la station </p>
-    <a *ngIf='stationService' (click)='displayStationServiceInformations()'>{{ stationService.name}}</a>
-    <p *ngIf='user'>{{user.fullname}}</p>
+    <a *ngIf='stationService' class="ss-name" (click)='displayStationServiceInformations()'>{{ stationService.name}}</a>
+    <p  class="fullname" *ngIf='user'>{{user.fullname}}</p>
     <div class="photo">
         <h1 class="initials" *ngIf='photoUrl == undefined'>{{user.fullname.charAt(0)}}</h1>
         <img [src]='photoUrl' *ngIf='photoUrl' alt="photo de profile">
@@ -26,7 +26,7 @@
         </div>
 
         <div class="wiki-station" *ngIf="selectedMenu == 'wiki-station'">
-            <app-wiki-station></app-wiki-station>
+            <app-wiki-station [canUpdate]='false'></app-wiki-station>
         </div>
 
         <div class="forum" *ngIf="selectedMenu == 'forum'">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="actu" *ngIf="selectedMenu == 'actu'">
-            Actu
+            <app-actu-management></app-actu-management>
         </div>
 
 

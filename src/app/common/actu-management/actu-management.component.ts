@@ -72,7 +72,7 @@ export class ActuManagementComponent implements OnInit {
             const author = res.find(u => u.id == a.author);
             const date = new Date(a.publish);
             const img = `${URL}/actu/${a.id}`;
-            this.displayListArticles.push([a.title, a.content, author.fullname, date.getDate() + '/' + date.getMonth(), date.getFullYear() + '', img, a.id])
+            this.displayListArticles.push([a.title, a.content, author.fullname, date.getDate() + '/' + date.getMonth(), date.getFullYear() + '', img, date, a.id])
           });
           this.displayListLastActu = [];
           for(let i = 0; i< 3; i++){

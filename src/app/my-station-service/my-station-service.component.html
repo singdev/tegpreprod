@@ -45,10 +45,10 @@
             </div>
         </div>
 
-        <div class="user-management">
+        <div class="user-management" *ngIf='gerant && user.id == gerant.id'>
             <h1>Liste des employés de la station service</h1>
 
-            <app-user-management [users]='users' [userTableRows]='userTableRows'></app-user-management>
+            <app-user-management [users]='users'  [isEmploye]='true' [ssId]='stationService.id' [userTableRows]='userTableRows'></app-user-management>
         </div>
     </div>
 </div>

@@ -56,6 +56,16 @@ export class StationServiceService {
     });
   }
 
+  addStationServiceWorker(ssId: number, userId: number): Observable<any> {
+    let headers: HttpHeaders = new HttpHeaders(
+      {'authorization': `Bearer ${this.authService.getToken()}`,
+       'content-type': 'application/json'});
+
+    return this.http.post(`${URL}/station-service-worker`, {employe: userId, ss: ssId }, {
+      headers: headers
+    });
+  }
+
   updateStationServiceData(stationService: StationService): Observable<any> {
     const stationServiceCopy = { 
         name: stationService.name,

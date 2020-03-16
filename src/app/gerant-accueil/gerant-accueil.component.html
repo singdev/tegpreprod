@@ -1,6 +1,19 @@
-<div class="main">
+<div class="main" *ngIf='selectedActu == undefined'>
     <div class="actu">
         <h1>Derniers articles publiés</h1>
+        <div class="article-content">
+            <div class="last-article" *ngFor='let actu of displayListLastActu'>
+                <div class="main-content" (click)="selectActu(actu)">
+                    <h1 class="title">{{actu[0]}}</h1>
+                    <div class='content' [innerHtml]="(actu[1].length>100)? (actu[1] | slice:0:100)+'..':(actu[1])"></div>
+                    <div class="bottom">
+                    <p class="author">{{actu[2]}}</p>
+                    <p class="date">{{ actu[actu.length-2] | date }}</p>
+                    </div>
+                </div>
+                <img [src]='actu[5]' *ngIf='actu[5]' alt="illustration">
+            </div>
+        </div>
     </div>
 
     <div class="objectifs">
@@ -79,3 +92,5 @@
         </div>
     </div>
 </div>
+
+<app-view-actu *ngIf='selectedActu' [actu]='selectedActu'></app-view-actu>

@@ -13,7 +13,7 @@
         <div class="top-profile">
             <div class="photo">
                 <img [src]='photoUrl' *ngIf='photoUrl' alt="photo de profil">
-                <h1 class="initial" *ngIf='photoUrl == undefined'>{{getUserInitials()}}</h1>
+                <h1 class="initials" *ngIf='photoUrl == undefined'>{{getUserInitials()}}</h1>
             </div>
     
             <div class="personal-information">
@@ -22,7 +22,7 @@
     
                 <div class="file-chooser">
                     <label for="photo-file">Cliquez ici pour changer votre photo de profil</label>
-                    <input type="file" (change)='changeUserPhoto($event)'>
+                    <input type="file" id="photo-file" (change)='changeUserPhoto($event)'>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
             </div>
     
             <div class="form-group">
-                <label for="role"></label>
+                <label for="role">Role</label>
                 <select  id="role" [(ngModel)]='user.role'>
                     <option value="GERANT">GERANT</option>
                     <option value="TMG">TMG</option>

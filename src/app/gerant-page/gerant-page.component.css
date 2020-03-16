@@ -2,3 +2,12 @@
 .nav-item {
     text-transform: uppercase;
 }
+
+.ss-name {
+    color: #DF0C36;
+}
+
+.ss-name:hover {
+    cursor: pointer;
+    
+}

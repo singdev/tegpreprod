@@ -1,0 +1,27 @@
+<div class="main">
+    <h1>Extranet Gérant</h1>
+    <p>Discutez librement sur des sujets passionnant</p>
+    <button (click)="displayCreateActuModal()">Nouveau sujet</button>
+
+    <div class="subjects" *ngIf='users && subjects'>
+        <div class="subject" *ngFor='let s of subjects'>
+            <div class="content">
+                <p>{{s.title}}</p>
+                <p><span>{{ getUser(s.author).fullname}}</span>, <span>{{ s.publish | date}}</span></p>
+            </div>
+
+            <div class="response-count">
+                <p><span *ngIf='finishCount'>{{ getPostCount(s.id).count }}</span> Réponses</p>
+            </div>
+
+            <div class="user">
+                <div class="photo">
+                    {{ getUser(s.author).fullname.charAt(0)}}
+                </div>
+                <p>{{getUser(s.author).fullname}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<app-create-subject-modal *ngIf="showCreateActuModal" (closeModal)='onCloseCreate($event)'>
+</app-create-subject-modal>

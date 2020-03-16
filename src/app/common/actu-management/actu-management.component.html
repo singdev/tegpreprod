@@ -1,32 +1,38 @@
-<a class="close" (click)='close()'><i class="fa fa-times"></i></a>
-<div class="main" *ngIf='selectedActu == undefined'>
-    <div class="last" *ngIf='lastActu'>
-        <h1>Derniers article publié</h1>
+<div class="main-cn">
+    <a class="close" (click)='close()'><i class="fa fa-times"></i></a>
+    <div class="main" *ngIf='selectedActu == undefined'>
+        <div class="last" *ngIf='lastActu'>
+            <h1>Derniers article publié</h1>
 
-        <div class="article-content">
-            <div class="last-article"  *ngFor='let actu of displayListLastActu'>
-                <div class="main-content" (click)="selectActu(actu)" >
-                    <h1 class="title">{{actu[0]}}</h1>
-                    <angular-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [(ngModel)]="actu[1]"></angular-editor>
-                    <p class="author">{{actu[2]}}</p>
+            <div class="article-content">
+                <div class="last-article" *ngFor='let actu of displayListLastActu'>
+                    <div class="main-content" (click)="selectActu(actu)">
+                        <h1 class="title">{{actu[0]}}</h1>
+                        <div class='content' [innerHtml]="(actu[1].length>100)? (actu[1] | slice:0:100)+'..':(actu[1])"></div>
+                        <div class="bottom">
+                        <p class="author">{{actu[2]}}</p>
+                        <p class="date">{{ actu[actu.length-2] | date }}</p>
+                        </div>
+                    </div>
+                    <img [src]='actu[5]' *ngIf='actu[5]' alt="illustration">
                 </div>
-                <img [src]='actu[5]' *ngIf='actu[5]' alt="illustration">
+            </div>
+        </div>
+
+        <div class="all" *ngIf='articles'>
+            <h1>Tous les articles</h1>
+            <div class="article-content">
+                <div class="article" *ngFor='let actu of displayListArticles'>
+                    <div class="a-date">
+                        <p>{{actu[3]}}</p>
+                        <p>{{actu[4]}}</p>
+                    </div>
+                    <h1 class="title-sm">{{actu[0]}}</h1>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="all" *ngIf='articles'>
-        <h1>Tous les articles</h1>
-        <div class="article-content">
-            <div class="article" *ngFor='let actu of displayListArticles'>
-                <div class="a-date">
-                    <p>{{actu[3]}}</p>
-                    <p>{{actu[4]}}</p>
-                </div>
-                <h1 class="title-sm">{{actu[0]}}</h1>
-            </div>
-        </div>
-    </div>
+    <app-view-actu *ngIf='selectedActu' [actu]='selectedActu'></app-view-actu>
+
 </div>
-
-<app-view-actu *ngIf='selectedActu' [actu]='selectedActu'></app-view-actu>

@@ -1,0 +1,20 @@
+<div class="cn-modal">
+    <div class="modal">
+        <h1 class="modal-title">Ajouter un article</h1>
+        <div class="main">
+
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" id="title" [(ngModel)]='subject.title' />
+            </div>
+
+        </div>
+
+        <div class="actions">
+            <button (click)='createSubject()'>Ajouter</button>
+            <button (click)='cancel()'>Annuler</button>
+        </div>
+    </div>
+</div>
+
+

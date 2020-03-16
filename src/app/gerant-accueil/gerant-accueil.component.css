@@ -1,6 +1,7 @@
 .main {
     display: grid;
     grid-template-columns: 50% 50%;
+    padding: 40px;
 }
 
 .key-value, .key-value-small, .key-value-md {
@@ -10,7 +11,7 @@
     justify-content: center;
 }
 
-.top, .bottom, .obj-cn {
+.top, .top-service .bottom, .obj-cn {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -25,4 +26,80 @@
     overflow: scroll;
 }
 
+
+.article-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 4px;
+}
+
+.last-article {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+}
+
+.last-article:hover {
+    cursor: pointer;
+}
+
+.last-article img {
+    width: 200px;
+    height: 185px;
+    background-size: cover;
+    padding-right: 8px;
+}
+
+.main-cn {
+    padding: 20px;
+}
+
+.close {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.last-article .title, .last-article .content,  .last-article .bottom {
+    padding-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.last-article .title {
+    font-size: 16px;
+    color: #DF0C36;
+}
+
+.last-article .content {
+    color: #444444;
+}
+
+.article {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.a-date {
+    padding: 20px;
+}
+
+.a-date p {
+    color: #777777;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.all {
+    padding-left: 40px;
+}
+
+.title-sm {
+    font-weight: normal;
+    font-size: 14px;
+}
 

@@ -3,7 +3,7 @@
     <div class="flex-expand">
     </div>
     <p>Bienvenue </p>
-    <p *ngIf='user'>{{user.fullname}}</p>
+    <p *ngIf='user' class="fullname">{{user.fullname}}</p>
     <div class="photo">
         <h1 class="initials" *ngIf='photoUrl == undefined'>{{user.fullname.charAt(0)}}</h1>
         <img [src]='photoUrl' *ngIf='photoUrl' alt="photo de profile">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="forum" *ngIf="selectedMenu == 'forum'">
-            Forum
+            <app-forum-subject></app-forum-subject>
         </div>
 
         <div class="actu" *ngIf="selectedMenu == 'actu'">
