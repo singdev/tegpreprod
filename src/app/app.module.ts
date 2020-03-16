@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule} from '@angular/forms';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,9 @@ import { MyStationServiceComponent } from './my-station-service/my-station-servi
 import { GerantAccueilComponent } from './gerant-accueil/gerant-accueil.component';
 import { WikiComponent } from './common/wiki/wiki.component';
 import { WikiStationComponent } from './wiki-station/wiki-station.component';
+import { ActuManagementComponent } from './common/actu-management/actu-management.component';
+import { CreateActuModalComponent } from './common/create-actu-modal/create-actu-modal.component';
+import { ViewActuComponent } from './view-actu/view-actu.component';
 
 @NgModule({
   declarations: [
@@ -46,13 +50,17 @@ import { WikiStationComponent } from './wiki-station/wiki-station.component';
     MyStationServiceComponent,
     GerantAccueilComponent,
     WikiComponent,
-    WikiStationComponent
+    WikiStationComponent,
+    ActuManagementComponent,
+    CreateActuModalComponent,
+    ViewActuComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

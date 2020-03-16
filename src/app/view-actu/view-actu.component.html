@@ -1,0 +1,26 @@
+<div class="main">
+    <div class="cn">
+        <h1 class="title">{{ actu[0] }}</h1>
+
+        <P class="author">{{actu[2]}}</P>
+        <p class="date">publié le {{ actu[3] + '/' + actu[4] }}</p>
+    
+        <img [src]="actu[5]" alt="illustration" class="illustration" *ngIf='actu[5]'>
+    
+        <div class='content' [innerHtml]='actu[1]'></div>
+    </div>
+
+    <div class="comments">
+        <h2>Commentaires</h2>
+
+        <p>Réagir à cette article</p>
+        <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="comment"></angular-editor>
+        <button (click)='commentArticle()'>Envoyer</button>
+        <div class="comment-list">
+            <div class="comment" *ngFor='let c of comments'>
+                <p>{{c.publish}}</p>
+                <div [innerHtml]='c.content'></div>
+            </div>
+        </div>
+    </div>
+</div>

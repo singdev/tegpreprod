@@ -4,6 +4,7 @@
     </div>
     <p>Bienvenue à la station </p>
     <a *ngIf='stationService' (click)='displayStationServiceInformations()'>{{ stationService.name}}</a>
+    <p *ngIf='user'>{{user.fullname}}</p>
     <div class="photo">
         <h1 class="initials" *ngIf='photoUrl == undefined'>{{user.fullname.charAt(0)}}</h1>
         <img [src]='photoUrl' *ngIf='photoUrl' alt="photo de profile">

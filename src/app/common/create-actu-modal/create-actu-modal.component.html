@@ -1,0 +1,25 @@
+<div class="cn-modal">
+    <div class="modal">
+        <h1 class="modal-title">Ajouter un article</h1>
+        <div class="main">
+
+            <div class="form-group">
+                <label for="title">Titre</label>
+                <input type="text" id="title" [(ngModel)]='actu.title' />
+            </div>
+
+            <div class="file-chooser">
+                <label for="illustration">Cliquez ici pour ajouter une illustration</label>
+                <input type="file" id="illustration" (change)='loadIllustration($event)'>
+            </div>
+
+            <angular-editor [placeholder]="'Entrez votre text ici'" [(ngModel)]="actu.content"></angular-editor>
+        </div>
+
+        <div class="actions">
+            <button (click)='createActu()'>Ajouter</button>
+            <button (click)='cancel()'>Annuler</button>
+        </div>
+    </div>
+</div>
+

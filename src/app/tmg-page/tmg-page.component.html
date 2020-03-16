@@ -1,1 +1,48 @@
-<p>tmg-page works!</p>
+<header>
+    <img class="total-logo" src="/assets/TOTAL_SA_logo.png" alt="Logo de total">
+    <div class="flex-expand">
+    </div>
+    <p>Bienvenue </p>
+    <p *ngIf='user'>{{user.fullname}}</p>
+    <div class="photo">
+        <h1 class="initials" *ngIf='photoUrl == undefined'>{{user.fullname.charAt(0)}}</h1>
+        <img [src]='photoUrl' *ngIf='photoUrl' alt="photo de profile">
+    </div>
+    <app-dropdown-menu></app-dropdown-menu>
+</header>
+
+<main>
+    <nav>
+        <p class="nav-item" [class.active]="selectedMenu == 'accueil'" (click)="setSelectedMenu('accueil')">accueil</p>
+        <p class="nav-item" [class.active]="selectedMenu == 'wiki-station'" (click)="setSelectedMenu('wiki-station')">wiki station</p>
+        <p class="nav-item" [class.active]="selectedMenu == 'ss'" (click)="setSelectedMenu('ss')">station service</p>
+        <p class="nav-item" [class.active]="selectedMenu == 'forum'" (click)="setSelectedMenu('forum')">forum</p>
+        <p class="nav-item" [class.active]="selectedMenu == 'actu'" (click)="setSelectedMenu('actu')">actualité</p>
+    </nav>
+
+    <div class="main-content">
+        <div class="accueil" *ngIf="selectedMenu == 'accueil'">
+            <app-objectif-management></app-objectif-management>
+        </div>
+
+        <div class="wiki-station" *ngIf="selectedMenu == 'wiki-station'">
+            <app-wiki-station></app-wiki-station>
+        </div>
+
+        <div class="ss" *ngIf="selectedMenu == 'ss'">
+            <app-station-service-management></app-station-service-management>
+        </div>
+
+        <div class="forum" *ngIf="selectedMenu == 'forum'">
+            Forum
+        </div>
+
+        <div class="actu" *ngIf="selectedMenu == 'actu'">
+            <button (click)='displayCreateActuModal()'>Nouvelle actualité</button>
+            <app-actu-management></app-actu-management>
+        </div>
+
+    </div>
+
+    <app-create-actu-modal (closeModal)='onCloseActuModal($event)' *ngIf='showCreateActuModal'></app-create-actu-modal>
+</main>

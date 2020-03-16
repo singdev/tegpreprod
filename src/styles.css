@@ -100,3 +100,7 @@ nav {
     color: red;
     border-bottom: 2px solid red;
 }
+
+header p {
+    padding: 0px 10px;
+}
