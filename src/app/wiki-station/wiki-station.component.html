@@ -1,0 +1,17 @@
+<div class="main">
+    <div class="formation">
+        <app-wiki *ngIf='wikiFormation' [wikis]='wikiFormation' [category]="'Formation'"></app-wiki>
+    </div>
+
+    <div class="hse">
+        <app-wiki *ngIf='wikiHSE' [wikis]='wikiHSE' [category]="'HSE'"></app-wiki>
+    </div>
+
+    <div class="top-service">
+        <app-wiki *ngIf='wikiTopService' [wikis]='wikiTopService' [category]="'Top service'"></app-wiki>
+    </div>
+
+    <div class="procedure">
+        <app-wiki *ngIf='wikiProcedure' [wikis]='wikiProcedure' [category]="'Procedure'"></app-wiki>
+    </div>
+</div>

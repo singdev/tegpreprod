@@ -1,0 +1,28 @@
+.main {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.key-value, .key-value-small, .key-value-md {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.top, .bottom, .obj-cn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.realisation-volume {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: scroll;
+}
+
+

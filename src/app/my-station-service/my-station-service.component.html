@@ -1,0 +1,54 @@
+<div class="on-top">
+    <a class="close" (click)="close()"><i class="fa fa-times"></i></a>
+    <div class="content">
+        <div class="station-cn">
+            <div class="information">
+                <h1>Information sur la station service</h1>
+
+                <div class="key-value">
+                    <p class="key">Nom de la station</p>
+                    <p class="value">{{ stationService.name }}</p>
+                </div>
+
+                <div class="key-value">
+                    <p class="key">Téléphone</p>
+                    <p class="value">{{ stationService.phone}}</p>
+                </div>
+                <div class="key-value">
+                    <p class="key">Adresse Email</p>
+                    <p class="value">{{stationService.email}}/p>
+                </div>
+                <div class="key-value">
+                    <p class="key">Ville</p>
+                    <p class="value">{{stationService.ville}}</p>
+                </div>
+                <div class="key-value">
+                    <p class="key">Localisation</p>
+                    <p class="value" *ngIf='openStreetMapLink'>{{openStreetMapLink}}</p>
+                </div>
+                <div class="key-value">
+                    <p class="key">SAP</p>
+                    <p class="value">{{stationService.sap}}</p>
+                </div>
+            </div>
+
+            <div class="gerant-cn">
+                <h1>Gerant</h1>
+                <div class="gerant">
+                    <div class="photo">
+                        <h1 class="initials" *ngIf='photoUrl == undefined'>{{gerant.fullname.charAt(0)}}</h1>
+                        <img src="photoUrl" *ngIf='photoUrl' alt="photo de profil du gerant">
+                    </div>
+                    <p>{{gerant.fullname}}</p>
+                    <p>{{gerant.phone}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="user-management">
+            <h1>Liste des employés de la station service</h1>
+
+            <app-user-management [users]='users' [userTableRows]='userTableRows'></app-user-management>
+        </div>
+    </div>
+</div>

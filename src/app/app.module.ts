@@ -20,6 +20,10 @@ import { RealisationCardComponent } from './common/realisation-card/realisation-
 import { UpdateRealisationVolumeComponent } from './common/update-realisation-volume/update-realisation-volume.component';
 import { ObjectifManagementComponent } from './objectif-management/objectif-management.component';
 import { DropdownMenuComponent } from './common/dropdown-menu/dropdown-menu.component';
+import { MyStationServiceComponent } from './my-station-service/my-station-service.component';
+import { GerantAccueilComponent } from './gerant-accueil/gerant-accueil.component';
+import { WikiComponent } from './common/wiki/wiki.component';
+import { WikiStationComponent } from './wiki-station/wiki-station.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { DropdownMenuComponent } from './common/dropdown-menu/dropdown-menu.comp
     RealisationCardComponent,
     UpdateRealisationVolumeComponent,
     ObjectifManagementComponent,
-    DropdownMenuComponent
+    DropdownMenuComponent,
+    MyStationServiceComponent,
+    GerantAccueilComponent,
+    WikiComponent,
+    WikiStationComponent
   ],
   imports: [
     BrowserModule,

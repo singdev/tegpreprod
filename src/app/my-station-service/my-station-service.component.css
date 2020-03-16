@@ -1,0 +1,53 @@
+.on-top {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5);
+    justify-content: center;
+    overflow-y: scroll;
+    display: flex;
+}
+
+.content {
+    padding: 20px;
+    width: 80%;
+    background-color: white;
+    height: fit-content;
+    margin-top: 40px;
+}
+
+.station-cn {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.close {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 20px;
+}
+
+.close:hover {
+    color: #777777;
+    cursor: pointer;
+}
+
+.key-value {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.gerant {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.gerant-cn h1 {
+    text-align: center;
+}

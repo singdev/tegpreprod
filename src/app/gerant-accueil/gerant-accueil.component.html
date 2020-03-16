@@ -1,0 +1,81 @@
+<div class="main">
+    <div class="actu">
+        <h1>Derniers articles publiés</h1>
+    </div>
+
+    <div class="objectifs">
+        <div class="top-service">
+            <h1>Top service</h1>
+
+            <div class="top">
+                <div class="key-value">
+                    <p class="key">Note filial</p>
+                    <p class="value" *ngIf='objectifTopService'>{{objectifTopService.indicateur_filial}}</p>
+                </div>
+
+                <div class="key-value" *ngIf='realisationTopService'>
+                    <p class="key">Note de <span>{{stationService.name}}</span></p>
+                    <p class="value">{{moyen() }}</p>
+                </div>
+            </div>
+
+            <div class="bottom" *ngIf='realisationTopService'>
+                <div class="key-value-small">
+                    <p class="key">Note du premier semestre</p>
+                    <p class="value">{{realisationTopService.n_s1}}</p>
+                </div>
+
+                <div class="key-value-small">
+                    <p class="key">Note du second semestre</p>
+                    <p class="value">{{realisationTopService.n_s2}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="obj-volume">
+            <h1>Objectif volumes</h1>
+            <div class="objectifs" *ngIf='objectifVolume'>
+                <h2>Objectifs actuels</h2>
+                <div class="obj-cn">
+                    <div class="key-value-md">
+                        <p class="key">Lubrifiant</p>
+                        <p class="value">{{ objectifVolume.lubrifiant}}</p>
+                    </div>
+
+                    <div class="key-value-md">
+                        <p class="key">Carburant</p>
+                        <p class="value">{{objectifVolume.carburant}}</p>
+                    </div>
+
+                    <div class="key-value-md">
+                        <p class="key">SFS</p>
+                        <p class="value">{{objectifVolume.sfs}}</p>
+                    </div>
+
+                    <div class="key-value-md">
+                        <p class="key">GPL</p>
+                        <p class="value">{{objectifVolume.gpl}}</p>
+                    </div>
+
+                    <div class="key-value-md">
+                        <p class="key">Croissanterie</p>
+                        <p class="value">{{objectifVolume.croissanterie}}</p>
+                    </div>
+
+                    <div class="key-value-md">
+                        <p class="key">Wash</p>
+                        <p class="value">{{objectifVolume.wash}}</p>
+                    </div>
+                </div>
+
+                <div class="realisation">
+                    <h2>Réalisation de <span>{{currentYear}}</span></h2>
+
+                    <div class="realisation-volume" *ngIf='realisationVolume'>
+                        <app-realisation-card *ngFor='let rv of realisationVolume' [realisationVolume]='rv' [canUpdate]='false'></app-realisation-card>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

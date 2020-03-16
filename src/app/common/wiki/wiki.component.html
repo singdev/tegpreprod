@@ -1,0 +1,10 @@
+<div class="main">
+    <div class="category">
+        <div class='file-chooser'>
+            <label for="file"><i class="fa fa-plus"></i></label>
+            <input type="file" (change)='createWiki($event)'>
+        </div>
+        <h1>{{category}}</h1>
+        <app-list *ngIf='rows' [headers]='headers' [rows]='rows'></app-list>
+    </div>
+</div>

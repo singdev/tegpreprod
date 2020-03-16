@@ -35,7 +35,7 @@
     <div class="main-ctn">
 
         <div id="fg-users" *ngIf="currentMenu == 'fg-users'">
-            <app-user-management></app-user-management>
+            <app-user-management [userTableRows]='userTableRows' [users]='users' (loadRequestEvent)='loadAllUser()'></app-user-management>
         </div>
 
         <div id="fg-ss" *ngIf="currentMenu == 'fg-ss'">

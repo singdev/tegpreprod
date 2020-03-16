@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { User } from '../logic/user';
 import { UserService } from '../services/user.service';
 
@@ -10,41 +10,22 @@ import { UserService } from '../services/user.service';
 export class UserManagementComponent implements OnInit {
 
   userTableHeaders: Array<String>;
-  userTableRows: Array<Array<String>>;
-  users: Array<User>;
+  @Input() userTableRows: Array<Array<String>>;
+  @Input() users: Array<User>;
   
   showCreateUserModal: boolean;
   showViewUserModal: boolean;
   currentUserView: User;
 
-  constructor(private userService: UserService) { }
+  @Output() loadRequestEvent = new EventEmitter<boolean>();
+
+  constructor() { }
 
   ngOnInit(): void {
     this.userTableHeaders = [
       'Nom et prénom', "Nom d'utilisateur", "Email", "Téléphone", "Role"
     ];
     this.showCreateUserModal = false;
-    this.loadAllUser();
-  }
-
-  loadAllUser(){
-    this.userService.getAllUsers().subscribe(
-      res => {
-        this.users = res;
-        const array = [];
-        res.forEach(user => {
-          array.push([
-            user.fullname, user.username, user.email, user.phone, user.role
-          ])
-        });
-        this.userTableRows = array;
-        console.log(this.userTableRows);
-      },
-
-      err => {
-
-      }
-    )
   }
 
   displayCreateUserDialog(){
@@ -65,7 +46,7 @@ export class UserManagementComponent implements OnInit {
 
   onUserCreated(success: boolean){
     if(success){
-      this.loadAllUser();
+      this.loadRequestEvent.emit(true);
       this.hideCreateUserDialog();
     } else {
       this.hideCreateUserDialog();
@@ -79,7 +60,7 @@ export class UserManagementComponent implements OnInit {
   }
 
   onUserCancelView(){
-    this.loadAllUser();
+    this.loadRequestEvent.emit(true);
     this.hideViewUserDialog();
   }
 }

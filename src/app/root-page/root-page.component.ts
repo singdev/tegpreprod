@@ -11,11 +11,34 @@ export class RootPageComponent implements OnInit {
 
   currentMenu: string;
   
+  userTableRows: Array<Array<String>>;
+  users: Array<User>;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.currentMenu = 'fg-users';
+    this.loadAllUser();
+  }
+
+  loadAllUser(){
+    this.userService.getAllUsers().subscribe(
+      res => {
+        this.users = res;
+        const array = [];
+        res.forEach(user => {
+          array.push([
+            user.fullname, user.username, user.email, user.phone, user.role
+          ])
+        });
+        this.userTableRows = array;
+        console.log(this.userTableRows);
+      },
+
+      err => {
+
+      }
+    )
   }
 
   toggleMenu(id: string){
