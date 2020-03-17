@@ -24,10 +24,12 @@ export class ExcelComponent implements OnInit {
   }
 
   importJson(e){
-    var files = e.target.files, f = files[0];
+    const files = e.target.files; 
+    const f = files[0];
     var reader = new FileReader();
     reader.onload = (e) => {
-      var data = new Uint8Array(e.target.result);
+      const a: any = e.target.result;
+      var data = new Uint8Array(a);
       var workbook = XLSX.read(data, {type: 'array'});
       console.log(workbook.Sheets);
       var workSheet = workbook.Sheets['data'];
