@@ -31,6 +31,7 @@ import { ViewActuComponent } from './view-actu/view-actu.component';
 import { ForumSubjectComponent } from './forum-subject/forum-subject.component';
 import { ForumPostComponent } from './forum-post/forum-post.component';
 import { CreateSubjectModalComponent } from './common/create-subject-modal/create-subject-modal.component';
+import { ExcelComponent } from './common/excel/excel.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { CreateSubjectModalComponent } from './common/create-subject-modal/creat
     ViewActuComponent,
     ForumSubjectComponent,
     ForumPostComponent,
-    CreateSubjectModalComponent
+    CreateSubjectModalComponent,
+    ExcelComponent
   ],
   imports: [
     BrowserModule,

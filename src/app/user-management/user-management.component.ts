@@ -21,7 +21,7 @@ export class UserManagementComponent implements OnInit {
 
   @Output() loadRequestEvent = new EventEmitter<boolean>();
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
     this.userTableHeaders = [
@@ -64,5 +64,27 @@ export class UserManagementComponent implements OnInit {
   onUserCancelView(){
     this.loadRequestEvent.emit(true);
     this.hideViewUserDialog();
+  }
+
+  loadFormExcel(json){
+    json.forEach( u => {
+      if(u.id){
+        u.password = undefined;
+        this.userService.updateUserData(u).subscribe(
+          res =>{},
+          err => {
+            console.log(err);
+          }
+        );
+      } else {
+        u.password = 'changemoi';
+        this.userService.addUser(u).subscribe(
+          res =>{},
+          err => {
+            console.log(err);
+          }
+        )
+      }
+    });
   }
 }

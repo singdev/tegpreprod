@@ -1,5 +1,9 @@
 <div class="main">
-    <button (click)="displayCreateUserDialog()">Ajouter un utilisateur</button>
+    <div>
+        <button (click)="displayCreateUserDialog()">Ajouter un utilisateur</button>
+        <app-excel [jsonData]='users'  (jsonLoaded)='loadFormExcel($event)' [exportFileName]='"teg-user"'></app-excel>
+    </div>
+
 <div *ngIf="userTableRows">
     <app-list (rowClick)='onUserTableRowClick($event)' [rows]='userTableRows' [headers]='userTableHeaders'></app-list>
 </div>

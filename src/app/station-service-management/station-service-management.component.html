@@ -1,5 +1,6 @@
 <div class="main">
     <button (click)="displayCreateStationServiceDialog()">Ajouter une station service</button>
+    <app-excel [jsonData]='stationServices'  (jsonLoaded)='loadFormExcel($event)' [exportFileName]='"teg-ss"'></app-excel>
 <div *ngIf="stationServiceTableRows">
     <app-list (rowClick)='onStationServiceTableRowClick($event)' [rows]='stationServiceTableRows' [headers]='stationServiceTableHeaders'></app-list>
 </div>

@@ -1,0 +1,7 @@
+<div class="main">
+    <button (click)='downloadExcelFile()'>Exporter au format xlsx</button>
+    <div class="file-chooser">
+        <label for="file">Importer depuis un fichier xlsx</label>
+        <input type="file" id="file" (change)='importJson($event)'>
+    </div>
+</div>

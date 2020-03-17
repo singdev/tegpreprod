@@ -29,6 +29,26 @@ export class StationServiceManagementComponent implements OnInit {
     this.loadData();
   }
 
+  loadFormExcel(json){
+    json.forEach( ss => {
+      if(ss.id){
+        this.stationServiceService.updateStationServiceData(ss).subscribe(
+          res =>{},
+          err => {
+            console.log(err);
+          }
+        );
+      } else {
+        this.stationServiceService.addStationService(ss).subscribe(
+          res =>{},
+          err => {
+            console.log(err);
+          }
+        )
+      }
+    });
+  }
+
   loadAllStationService(gerants: Array<User>){
     this.stationServiceService.getAllStationServices().subscribe(
       res => {

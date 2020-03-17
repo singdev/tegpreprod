@@ -1,0 +1,8 @@
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.main button {
+    margin-right: 8px;
+}
