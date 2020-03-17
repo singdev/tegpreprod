@@ -23,16 +23,4 @@ export class ExcelService {
     const data: Blob = new Blob([buffer], { type: EXCEL_TYPE });
     FileSaver.saveAs(data, fileName + '_export_' + new Date().getTime() + EXCEL_EXTENSION);
   }
-
-  public importJsonFromExcelFile(file: File): Array<any>{
-    var reader = new FileReader();
-    reader.onload = function(e) {
-      var data = new Uint8Array(e.target.result);
-      var workbook = XLSX.read(data, {type: 'array'});
-      const ws: XLSX.WorkSheet = XLSX.read(file).Sheets['data'];
-      return XLSX.utils.sheet_to_json(ws);
-    };
-    reader.readAsArrayBuffer(f);
-
-  }
 }
